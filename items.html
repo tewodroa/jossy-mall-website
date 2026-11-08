@@ -1,0 +1,704 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jossy Mall | Discover More</title>
+
+<style>
+
+:root {
+    --gold: #d6a84f;
+    --dark: #101820;
+    --light: #f8f7f3;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--light);
+    color: var(--dark);
+}
+
+/* NAVIGATION */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(16,24,32,0.97);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+}
+
+.logo {
+    color: var(--gold);
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.menu {
+    display: none;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 650px;
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.65)
+        ),
+        url('/static/jossy-mall.jpg');
+
+    background-size: cover;
+    background-position: center 45%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 40px 20px;
+}
+
+.hero-content {
+    max-width: 850px;
+    animation: appear 1.2s ease;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 85px);
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    font-size: 19px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #101820;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-4px);
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 85px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    color: #777;
+    line-height: 1.7;
+}
+
+/* CATEGORY CARDS */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.category-card {
+    background: white;
+    padding: 35px 25px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px #0000000d;
+    transition: 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px #00000015;
+}
+
+.category-icon {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.category-card h3 {
+    margin-bottom: 12px;
+}
+
+.category-card p {
+    color: #777;
+    line-height: 1.6;
+}
+
+/* STORES */
+
+.stores-section {
+    background: #ecebe7;
+}
+
+.search-box {
+    display: block;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto 35px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.store-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border-bottom: 3px solid var(--gold);
+    transition: 0.3s;
+}
+
+.store-card:hover {
+    transform: translateY(-5px);
+}
+
+.store-card h3 {
+    margin-bottom: 12px;
+}
+
+.store-card p {
+    color: #777;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.store-category {
+    color: #a77a28 !important;
+    font-weight: bold;
+}
+
+/* ABOUT */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.about-text h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    line-height: 1.9;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* CONTACT */
+
+.contact {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.contact p {
+    line-height: 2;
+    color: #ccc;
+}
+
+/* FOOTER */
+
+footer {
+    background: #080d12;
+    color: #aaa;
+    text-align: center;
+    padding: 30px 15px;
+    line-height: 2;
+}
+
+footer span {
+    color: var(--gold);
+}
+
+/* ANIMATION */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width: 800px) {
+
+    nav {
+        padding: 18px 5%;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: var(--dark);
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-links a {
+        margin: 12px;
+    }
+
+    .category-grid,
+    .store-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 500px) {
+
+    .category-grid,
+    .store-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+
+    .hero {
+        min-height: 530px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">JOSSY MALL</div>
+
+    <div class="menu" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#categories">Shopping</a>
+        <a href="#stores">Stores</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+</nav>
+
+
+<!-- HERO SECTION -->
+
+<header class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>WELCOME TO <span>JOSSY MALL</span></h1>
+
+        <p id="tagline">
+            Discover. Experience. Enjoy.
+        </p>
+
+        <a href="#categories" class="btn">
+            EXPLORE THE MALL →
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- CATEGORIES -->
+
+<section id="categories">
+
+    <div class="section-title">
+
+        <h2>Explore Our Shopping Categories</h2>
+
+        <p>
+            Discover a variety of shopping and lifestyle experiences.
+        </p>
+
+    </div>
+
+    <div class="category-grid" id="categoryGrid"></div>
+
+</section>
+
+
+<!-- STORE DIRECTORY -->
+
+<section class="stores-section" id="stores">
+
+    <div class="section-title">
+
+        <h2>Discover Our Stores</h2>
+
+        <p>
+            Find the services and shopping destinations available at Jossy Mall.
+        </p>
+
+    </div>
+
+    <input
+        type="search"
+        class="search-box"
+        id="storeSearch"
+        placeholder="Search for a store or category..."
+    >
+
+    <div class="store-grid" id="storeGrid"></div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="about">
+
+        <img
+            src="/static/jossy-mall.jpg"
+            alt="Jossy Mall building"
+        >
+
+        <div class="about-text">
+
+            <h2>Discover Jossy Mall</h2>
+
+            <p id="description">
+                Your destination for shopping, lifestyle, fashion
+                and everyday essentials.
+            </p>
+
+            <p>
+                Explore the mall, discover shopping opportunities
+                and connect with businesses in one convenient place.
+            </p>
+
+            <a href="#contact" class="btn">
+                GET IN TOUCH
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <h2>Visit Jossy Mall</h2>
+
+    <p id="location">Location information coming soon.</p>
+
+    <p id="phone">Phone: Contact information coming soon.</p>
+
+    <p id="email">Email: Contact information coming soon.</p>
+
+    <p id="hours">Opening hours: Contact information coming soon.</p>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © <span id="year"></span>
+        <span>JOSSY MALL</span>.
+        All rights reserved.
+    </p>
+
+    <p>Discover. Experience. Enjoy.</p>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// Mobile navigation
+
+function toggleMenu() {
+
+    document.getElementById("navLinks")
+        .classList.toggle("active");
+
+}
+
+
+// Load mall data from FastAPI
+
+async function loadMall() {
+
+    try {
+
+        const response = await fetch("/api/mall");
+
+        if (!response.ok) {
+            throw new Error("Could not load mall information");
+        }
+
+        const data = await response.json();
+
+        // Mall information
+
+        document.getElementById("tagline").textContent =
+            data.mall.tagline;
+
+        document.getElementById("description").textContent =
+            data.mall.description;
+
+        document.getElementById("location").textContent =
+            "Location: " + data.mall.location;
+
+        document.getElementById("phone").textContent =
+            "Phone: " + data.mall.phone;
+
+        document.getElementById("email").textContent =
+            "Email: " + data.mall.email;
+
+        document.getElementById("hours").textContent =
+            "Opening hours: " + data.mall.opening_hours;
+
+
+        // Shopping categories
+
+        const categoryGrid =
+            document.getElementById("categoryGrid");
+
+        data.categories.forEach(category => {
+
+            const card = document.createElement("div");
+
+            card.className = "category-card";
+
+            const icon = document.createElement("div");
+            icon.className = "category-icon";
+            icon.textContent = category.icon;
+
+            const title = document.createElement("h3");
+            title.textContent = category.name;
+
+            const description = document.createElement("p");
+            description.textContent = category.description;
+
+            card.append(icon, title, description);
+
+            categoryGrid.appendChild(card);
+
+        });
+
+
+        // Store directory
+
+        displayStores(data.stores);
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById("storeGrid").textContent =
+            "Unable to load mall information. Please try again later.";
+
+    }
+
+}
+
+
+// Display store cards
+
+let allStores = [];
+
+function displayStores(stores) {
+
+    allStores = stores;
+
+    const storeGrid = document.getElementById("storeGrid");
+
+    storeGrid.replaceChildren();
+
+    if (stores.length === 0) {
+
+        storeGrid.textContent = "No stores found.";
+
+        return;
+
+    }
+
+    stores.forEach(store => {
+
+        const card = document.createElement("div");
+
+        card.className = "store-card";
+
+        const title = document.createElement("h3");
+        title.textContent = store.name;
+
+        const category = document.createElement("p");
+        category.className = "store-category";
+        category.textContent = store.category;
+
+        const description = document.createElement("p");
+        description.textContent = store.description;
+
+        const floor = document.createElement("p");
+        floor.textContent = "Floor: " + store.floor;
+
+        card.append(title, category, description, floor);
+
+        storeGrid.appendChild(card);
+
+    });
+
+}
+
+
+// Search stores
+
+document.getElementById("storeSearch")
+.addEventListener("input", function() {
+
+    const query = this.value.toLowerCase();
+
+    const filtered = allStores.filter(store =>
+
+        store.name.toLowerCase().includes(query) ||
+
+        store.category.toLowerCase().includes(query)
+
+    );
+
+    displayStores(filtered);
+
+});
+
+
+// Footer year
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+// Start website
+
+loadMall();
+
+</script>
+
+</body>
+</html>
